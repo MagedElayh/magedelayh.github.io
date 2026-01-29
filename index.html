@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maged Elayah - Software Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 50%, #34495e 100%);
+            color: #333;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body[dir="ltr"] {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Language Toggle Button */
+        .lang-toggle {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1em;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #2c3e50;
+        }
+
+        .lang-toggle:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            background: #3498db;
+            color: white;
+        }
+
+        .lang-toggle i {
+            font-size: 1.2em;
+        }
+
+        /* Header Section */
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #2c3e50, #3498db, #5dade2);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            border: 5px solid #3498db;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2d3748;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header h2 {
+            font-size: 1.5em;
+            color: #3498db;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #4a5568;
+            font-size: 0.95em;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .contact-item i {
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        .contact-item a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #3498db;
+        }
+
+        /* Section Styling */
+        .section {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2d3748;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #3498db;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 700;
+        }
+
+        .section-title i {
+            color: #3498db;
+            font-size: 1.2em;
+        }
+
+        .summary-text {
+            color: #4a5568;
+            font-size: 1.1em;
+            line-height: 2;
+            text-align: justify;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .skill-tag:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #3498db, #5dade2);
+        }
+
+        /* Interests Section */
+        .interests-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .interest-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid #3498db;
+        }
+
+        .interest-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.2);
+            border-top-color: #2c3e50;
+        }
+
+        .interest-icon {
+            font-size: 3em;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .interest-title {
+            font-size: 1.3em;
+            color: #2d3748;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .interest-description {
+            color: #718096;
+            line-height: 1.6;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .education-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .education-info p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .education-year {
+            font-size: 2em;
+            font-weight: 700;
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1em;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 2px solid white;
+            transition: opacity 0.3s;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .header h2 {
+                font-size: 1.2em;
+            }
+
+            .contact-info {
+                gap: 15px;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .date-location {
+                text-align: right;
+            }
+
+            .skills-container {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            }
+
+            .education-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle Button -->
+    <button class="lang-toggle" onclick="toggleLanguage()">
+        <i class="fas fa-language"></i>
+        <span id="lang-text">EN</span>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="profile-img">
+                ME
+            </div>
+            <h1 id="name">ماجد علايه</h1>
+            <h2 id="title">مطور برمجيات | مهندس نظم معلومات</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+966564827591" dir="ltr">+966 56 482 7591</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:magedelayh098@gmail.com">magedelayh098@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/maged-elayah" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-user"></i>
+                <span id="about-title">نبذة تعريفية</span>
+            </h2>
+            <p class="summary-text" id="summary">
+                أنا مهندس حاسوب شغوف بعالم التكنولوجيا والابتكار. أهتم بشكل كبير بتطوير التطبيقات والبرمجيات، واستكشاف أحدث التقنيات في مجال الهاردوير والأنظمة المدمجة. أسعى دائماً لمواكبة التطورات التقنية وتطبيقها في مشاريع عملية تحل المشكلات وتحسن تجربة المستخدم.
+            </p>
+        </div>
+
+        <!-- Interests -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-lightbulb"></i>
+                <span id="interests-title">مجالات الاهتمام</span>
+            </h2>
+            <div class="interests-container">
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="interest-title" id="interest1-title">تطوير التطبيقات</h3>
+                    <p class="interest-description" id="interest1-desc">
+                        شغف كبير بتطوير تطبيقات الهواتف الذكية وتطبيقات الويب باستخدام أحدث التقنيات والأطر البرمجية
+                    </p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <h3 class="interest-title" id="interest2-title">الهاردوير والأنظمة المدمجة</h3>
+                    <p class="interest-description" id="interest2-desc">
+                        اهتمام عميق بعالم الهاردوير والأنظمة المدمجة وإنترنت الأشياء وكيفية دمجها مع البرمجيات
+                    </p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="interest-title" id="interest3-title">الذكاء الاصطناعي</h3>
+                    <p class="interest-description" id="interest3-desc">
+                        متابعة مستمرة لتطورات الذكاء الاصطناعي والتعلم الآلي وتطبيقاتها في حل المشكلات الواقعية
+                    </p>
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3 class="interest-title" id="interest4-title">البرمجة والتطوير</h3>
+                    <p class="interest-description" id="interest4-desc">
+                        حب استكشاف لغات البرمجة المختلفة وأفضل الممارسات في تطوير البرمجيات والأنظمة
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Education -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-graduation-cap"></i>
+                <span id="education-title">التعليم</span>
+            </h2>
+            <div class="education-card">
+                <div class="education-info">
+                    <h3 id="degree">بكالوريوس هندسة الحاسوب والمعلومات</h3>
+                    <p id="university">جامعة إب</p>
+                </div>
+                <div class="education-year">
+                    2012 - 2017
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="section">
+            <h2 class="section-title">
+                <i class="fas fa-code"></i>
+                <span id="skills-title">المهارات التقنية</span>
+            </h2>
+            <div class="skills-container">
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">Django</div>
+                <div class="skill-tag">Odoo</div>
+                <div class="skill-tag">Flutter</div>
+                <div class="skill-tag">JavaScript</div>
+                <div class="skill-tag">C#</div>
+                <div class="skill-tag">C++</div>
+                <div class="skill-tag">Git</div>
+                <div class="skill-tag">ERP Systems</div>
+                <div class="skill-tag">HTML5</div>
+                <div class="skill-tag">CSS3</div>
+                <div class="skill-tag">MySQL</div>
+                <div class="skill-tag">PostgreSQL</div>
+                <div class="skill-tag">RESTful API</div>
+                <div class="skill-tag">IoT</div>
+                <div class="skill-tag">Machine Learning</div>
+                <div class="skill-tag">AI</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p id="copyright">© 2025 ماجد علايه - جميع الحقوق محفوظة</p>
+            <p style="margin-top: 10px;">
+                <a href="mailto:magedelayh098@gmail.com" id="contact-me">تواصل معي</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            ar: {
+                name: "ماجد علايه",
+                title: "مطور برمجيات | مهندس نظم معلومات",
+                aboutTitle: "نبذة تعريفية",
+                summary: "أنا مهندس حاسوب شغوف بعالم التكنولوجيا والابتكار. أهتم بشكل كبير بتطوير التطبيقات والبرمجيات، واستكشاف أحدث التقنيات في مجال الهاردوير والأنظمة المدمجة. أسعى دائماً لمواكبة التطورات التقنية وتطبيقها في مشاريع عملية تحل المشكلات وتحسن تجربة المستخدم.",
+                interestsTitle: "مجالات الاهتمام",
+                interest1Title: "تطوير التطبيقات",
+                interest1Desc: "شغف كبير بتطوير تطبيقات الهواتف الذكية وتطبيقات الويب باستخدام أحدث التقنيات والأطر البرمجية",
+                interest2Title: "الهاردوير والأنظمة المدمجة",
+                interest2Desc: "اهتمام عميق بعالم الهاردوير والأنظمة المدمجة وإنترنت الأشياء وكيفية دمجها مع البرمجيات",
+                interest3Title: "الذكاء الاصطناعي",
+                interest3Desc: "متابعة مستمرة لتطورات الذكاء الاصطناعي والتعلم الآلي وتطبيقاتها في حل المشكلات الواقعية",
+                interest4Title: "البرمجة والتطوير",
+                interest4Desc: "حب استكشاف لغات البرمجة المختلفة وأفضل الممارسات في تطوير البرمجيات والأنظمة",
+                educationTitle: "التعليم",
+                degree: "بكالوريوس هندسة الحاسوب والمعلومات",
+                university: "جامعة إب",
+                skillsTitle: "المهارات التقنية",
+                copyright: "© 2025 ماجد علايه - جميع الحقوق محفوظة",
+                contactMe: "تواصل معي",
+                langBtn: "EN"
+            },
+            en: {
+                name: "Maged Elayah",
+                title: "Software Developer | Information Systems Engineer",
+                aboutTitle: "About Me",
+                summary: "I am a computer engineer passionate about technology and innovation. I have a strong interest in developing applications and software, exploring the latest technologies in hardware and embedded systems. I always strive to keep up with technological developments and apply them in practical projects that solve problems and improve user experience.",
+                interestsTitle: "Areas of Interest",
+                interest1Title: "Application Development",
+                interest1Desc: "Great passion for developing mobile and web applications using the latest technologies and frameworks",
+                interest2Title: "Hardware & Embedded Systems",
+                interest2Desc: "Deep interest in hardware, embedded systems, IoT, and how to integrate them with software",
+                interest3Title: "Artificial Intelligence",
+                interest3Desc: "Continuous follow-up of AI and machine learning developments and their applications in solving real-world problems",
+                interest4Title: "Programming & Development",
+                interest4Desc: "Love exploring different programming languages and best practices in software and systems development",
+                educationTitle: "Education",
+                degree: "Bachelor of Computer and Information Engineering",
+                university: "Ibb University",
+                skillsTitle: "Technical Skills",
+                copyright: "© 2025 Maged Elayah - All Rights Reserved",
+                contactMe: "Contact Me",
+                langBtn: "AR"
+            }
+        };
+
+        let currentLang = 'ar';
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            const t = translations[currentLang];
+            
+            // Update text direction and language
+            document.documentElement.lang = currentLang;
+            document.body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Update all text content
+            document.getElementById('name').textContent = t.name;
+            document.getElementById('title').textContent = t.title;
+            document.getElementById('about-title').textContent = t.aboutTitle;
+            document.getElementById('summary').textContent = t.summary;
+            document.getElementById('interests-title').textContent = t.interestsTitle;
+            document.getElementById('interest1-title').textContent = t.interest1Title;
+            document.getElementById('interest1-desc').textContent = t.interest1Desc;
+            document.getElementById('interest2-title').textContent = t.interest2Title;
+            document.getElementById('interest2-desc').textContent = t.interest2Desc;
+            document.getElementById('interest3-title').textContent = t.interest3Title;
+            document.getElementById('interest3-desc').textContent = t.interest3Desc;
+            document.getElementById('interest4-title').textContent = t.interest4Title;
+            document.getElementById('interest4-desc').textContent = t.interest4Desc;
+            document.getElementById('education-title').textContent = t.educationTitle;
+            document.getElementById('degree').textContent = t.degree;
+            document.getElementById('university').textContent = t.university;
+            document.getElementById('skills-title').textContent = t.skillsTitle;
+            document.getElementById('copyright').textContent = t.copyright;
+            document.getElementById('contact-me').textContent = t.contactMe;
+            document.getElementById('lang-text').textContent = t.langBtn;
+        }
+    </script>
+</body>
+</html>
