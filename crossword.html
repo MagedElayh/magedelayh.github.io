@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة الخصوصية - الكلمات المتقاطعة</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --bg: #0f172a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --accent: #10b981;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.08) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.3);
+            font-size: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 15px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 0.6s ease backwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.1s; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.3s; }
+        .card:nth-child(4) { animation-delay: 0.4s; }
+        .card:nth-child(5) { animation-delay: 0.5s; }
+        .card:nth-child(6) { animation-delay: 0.6s; }
+        .card:nth-child(7) { animation-delay: 0.7s; }
+        .card:nth-child(8) { animation-delay: 0.8s; }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        p {
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-right: 28px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        ul li::before {
+            content: '✓';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, var(--accent), #059669);
+            border-radius: 6px;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-right: 4px solid var(--primary);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15));
+            text-align: center;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 24px;
+            border-radius: 12px;
+            margin-top: 15px;
+            font-size: 1.1rem;
+            border: 1px solid var(--card-border);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--card-border);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 25px 20px; }
+            .card-header { gap: 12px; }
+            .card-icon { width: 40px; height: 40px; font-size: 20px; }
+            h2 { font-size: 1.15rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">🎯</div>
+            <h1>سياسة الخصوصية</h1>
+            <p class="subtitle">تطبيق الكلمات المتقاطعة العربية</p>
+            <div class="badge">آخر تحديث: 16 مايو 2026</div>
+        </header>
+
+        <main>
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">📋</div>
+                    <h2>مقدمة</h2>
+                </div>
+                <p>
+                    مرحبًا بك في تطبيق <strong>الكلمات المتقاطعة</strong>. نحن نُقدّر خصوصيتك ونلتزم بحماية بياناتك الشخصية.
+                    توضّح هذه السياسة كيفية تعاملنا مع المعلومات عند استخدامك لتطبيقنا.
+                </p>
+                <div class="highlight">
+                    <strong>باختصار:</strong> تطبيقنا لا يجمع أي بيانات شخصية مباشرة منك، وجميع تقدّمك في اللعبة يُحفظ محليًا على جهازك فقط.
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔒</div>
+                    <h2>المعلومات التي نجمعها</h2>
+                </div>
+                <p><strong>المعلومات المخزنة محليًا على جهازك:</strong></p>
+                <ul>
+                    <li>تقدّمك في الألغاز والمراحل</li>
+                    <li>الإعدادات والتفضيلات داخل التطبيق</li>
+                    <li>الإحصائيات الخاصة بأدائك في اللعبة</li>
+                </ul>
+                <p style="margin-top: 15px;"><strong>لا نجمع</strong> أي معلومات شخصية مثل الاسم أو البريد الإلكتروني أو رقم الهاتف أو الموقع الجغرافي.</p>
+            </section>
+
+            
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">🛡️</div>
+                    <h2>الأذونات المطلوبة</h2>
+                </div>
+                <p>يطلب التطبيق الأذونات التالية فقط:</p>
+                <ul>
+                    <li><strong>الإنترنت:</strong> لعرض الإعلانات فقط</li>
+                    <li><strong>التخزين:</strong> لحفظ تقدّمك في اللعبة محليًا</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">👶</div>
+                    <h2>خصوصية الأطفال</h2>
+                </div>
+                <p>
+                    تطبيقنا مناسب لجميع الفئات العمرية. نحن لا نجمع عن قصد أي معلومات شخصية من الأطفال دون سن 13 عامًا.
+                    إذا كنت ولي أمر وتعتقد أن طفلك قدّم لنا معلومات، يُرجى التواصل معنا لاتخاذ الإجراء المناسب.
+                </p>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔄</div>
+                    <h2>مشاركة البيانات</h2>
+                </div>
+                <p>
+                    نحن <strong>لا نبيع</strong> ولا <strong>نُؤجّر</strong> ولا <strong>نُشارك</strong> أي بيانات مع أطراف ثالثة،
+                    باستثناء البيانات المذكورة أعلاه التي تجمعها خدمة Google AdMob لأغراض الإعلانات فقط.
+                </p>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">⚖️</div>
+                    <h2>حقوقك</h2>
+                </div>
+                <p>بصفتك مستخدمًا للتطبيق، لديك الحق في:</p>
+                <ul>
+                    <li>حذف جميع بياناتك بإلغاء تثبيت التطبيق</li>
+                    <li>إعادة تعيين مُعرّف الإعلان من إعدادات جهازك</li>
+                    <li>إيقاف الإعلانات المخصّصة من إعدادات Google</li>
+                    <li>التواصل معنا لأي استفسار أو شكوى</li>
+                </ul>
+            </section>
+
+            <section class="card">
+                <div class="card-header">
+                    <div class="card-icon">🔧</div>
+                    <h2>تغييرات على سياسة الخصوصية</h2>
+                </div>
+                <p>
+                    قد نقوم بتحديث سياسة الخصوصية من وقت لآخر. سيتم نشر أي تغييرات على هذه الصفحة مع تحديث تاريخ "آخر تحديث" في أعلى الصفحة.
+                    ننصحك بمراجعة هذه السياسة بشكل دوري.
+                </p>
+            </section>
+
+            <section class="card contact-card">
+                <div class="card-header" style="justify-content: center; border: none;">
+                    <div class="card-icon">📬</div>
+                    <h2>تواصل معنا</h2>
+                </div>
+                <p style="text-align: center;">
+                    لأي استفسار أو ملاحظة بخصوص سياسة الخصوصية، يُرجى التواصل عبر:
+                </p>
+                <div class="contact-email">
+                    <span>📧</span>
+                    <a href="mailto:magedelayh098@gmail.com">magedelayh098@gmail.com</a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>© 2026 تطبيق الكلمات المتقاطعة - جميع الحقوق محفوظة</p>
+            <a href="https://www.arwebgame.com"><p style="margin-top: 8px; font-size: 0.85rem;">صُنع بـ ❤️ ArWebGame</p>
+        </a>
+            </footer>
+    </div>
+</body>
+</html>
