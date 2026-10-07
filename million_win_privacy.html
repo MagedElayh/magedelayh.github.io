@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سياسة الخصوصية — من سيربح المليون</title>
+<meta name="description" content="سياسة الخصوصية لتطبيق من سيربح المليون - تحدي المعرفة">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f6f8fc;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
+    --line: #e5e9f2;
+    --primary: #4f46e5;
+    --primary-soft: #eef0ff;
+    --gold: #d4a017;
+    --gold-soft: #fff7e0;
+    --green: #059669;
+    --green-soft: #e8f8f1;
+    --radius: 18px;
+    --shadow: 0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Tajawal", "Inter", system-ui, sans-serif;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+  [lang="en"] { font-family: "Inter", system-ui, sans-serif; line-height: 1.7; font-size: 16px; }
+
+  .hero {
+    background:
+      radial-gradient(1200px 400px at 85% -10%, #e0e7ff 0%, transparent 60%),
+      radial-gradient(900px 400px at 0% 0%, #fff4d6 0%, transparent 55%),
+      var(--bg);
+    padding: 56px 16px 28px;
+    text-align: center;
+  }
+  .badge {
+    width: 76px; height: 76px; margin: 0 auto 18px;
+    border-radius: 22px;
+    background: linear-gradient(135deg, #6366f1, #4f46e5 55%, #d4a017);
+    display: grid; place-items: center;
+    box-shadow: 0 10px 30px rgba(79,70,229,.28);
+  }
+  .badge svg { width: 38px; height: 38px; }
+  h1 { margin: 0 0 6px; font-size: clamp(26px, 5vw, 36px); font-weight: 800; letter-spacing: -.01em; }
+  .sub { margin: 0; color: var(--muted); }
+  .meta {
+    display: inline-flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+    margin-top: 18px;
+  }
+  .chip {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: 999px; padding: 4px 14px; font-size: 14px; color: var(--muted);
+  }
+
+  .lang {
+    display: inline-flex; margin-top: 22px; padding: 4px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 999px;
+  }
+  .lang button {
+    border: 0; background: transparent; cursor: pointer;
+    font: inherit; font-size: 15px; font-weight: 600; color: var(--muted);
+    padding: 6px 18px; border-radius: 999px;
+  }
+  .lang button[aria-pressed="true"] { background: var(--primary); color: #fff; }
+
+  main { max-width: 860px; margin: 0 auto; padding: 8px 16px 64px; }
+
+  .summary {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; margin: 8px 0 28px;
+  }
+  .tile {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow);
+  }
+  .tile b { display: block; font-size: 16px; margin-bottom: 2px; }
+  .tile span { color: var(--muted); font-size: 14.5px; line-height: 1.6; display: block; }
+  .tile .ic {
+    width: 36px; height: 36px; border-radius: 10px; display: grid; place-items: center;
+    margin-bottom: 10px; font-size: 18px;
+  }
+  .ic.g { background: var(--green-soft); color: var(--green); }
+  .ic.p { background: var(--primary-soft); color: var(--primary); }
+  .ic.y { background: var(--gold-soft); color: var(--gold); }
+
+  nav.toc {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 18px 22px; margin-bottom: 20px;
+    box-shadow: var(--shadow);
+  }
+  nav.toc h2 { font-size: 15px; margin: 0 0 8px; color: var(--muted); font-weight: 600; }
+  nav.toc ol { margin: 0; padding-inline-start: 22px; columns: 2 240px; column-gap: 28px; }
+  nav.toc a { color: var(--text); text-decoration: none; font-size: 15.5px; }
+  nav.toc a:hover { color: var(--primary); }
+
+  section.card {
+    background: var(--surface); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 22px 26px; margin-bottom: 14px;
+    box-shadow: var(--shadow); scroll-margin-top: 16px;
+  }
+  section.card h2 {
+    display: flex; align-items: center; gap: 12px;
+    margin: 0 0 10px; font-size: 20px; font-weight: 700;
+  }
+  .num {
+    flex: none; width: 30px; height: 30px; border-radius: 9px;
+    background: var(--primary-soft); color: var(--primary);
+    display: grid; place-items: center; font-size: 15px; font-weight: 700;
+    font-family: "Inter", sans-serif;
+  }
+  section.card p { margin: 0 0 10px; }
+  section.card ul { margin: 6px 0 10px; padding-inline-start: 22px; }
+  section.card li { margin-bottom: 6px; }
+  section.card li::marker { color: var(--primary); }
+  a { color: var(--primary); }
+
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 6px; font-size: 15.5px; }
+  th, td { text-align: start; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: #f9fafc; color: var(--muted); font-weight: 600; font-size: 14px; }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; }
+  .table-wrap table { margin: 0; }
+  .table-wrap tr:last-child td { border-bottom: 0; }
+
+  .note {
+    background: var(--gold-soft); border: 1px solid #f5e3a8;
+    border-radius: 12px; padding: 12px 16px; font-size: 15.5px;
+  }
+  .contact {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+    background: var(--primary-soft); border-radius: 12px; padding: 14px 18px;
+  }
+  .contact a { font-weight: 600; text-decoration: none; direction: ltr; }
+
+  footer { text-align: center; color: var(--muted); font-size: 14px; margin-top: 30px; }
+
+  [hidden] { display: none !important; }
+
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    section.card { padding: 18px 18px; }
+    .hero { padding-top: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="badge" aria-hidden="true">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/>
+    </svg>
+  </div>
+  <h1 data-ar="سياسة الخصوصية" data-en="Privacy Policy">سياسة الخصوصية</h1>
+  <p class="sub" data-ar="تطبيق «من سيربح المليون - تحدي المعرفة»" data-en="“Who Wants to Be a Millionaire – Knowledge Challenge” app">تطبيق «من سيربح المليون - تحدي المعرفة»</p>
+  <div class="meta">
+    <span class="chip" data-ar="تاريخ السريان: 7 أكتوبر 2026" data-en="Effective: October 7, 2026">تاريخ السريان: 7 أكتوبر 2026</span>
+    <span class="chip" dir="ltr">com.magedapp.million_win</span>
+  </div>
+  <div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" data-lang="ar" aria-pressed="true">العربية</button>
+      <button type="button" data-lang="en" aria-pressed="false">English</button>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ======================= العربية ======================= -->
+<div id="ar" lang="ar" dir="rtl">
+
+  <div class="summary">
+    <div class="tile"><div class="ic g">✓</div><b>بدون حسابات</b><span>لا نطلب تسجيلاً ولا اسماً ولا بريداً إلكترونياً.</span></div>
+    <div class="tile"><div class="ic p">▣</div><b>بياناتك على جهازك</b><span>النتائج والإعدادات تُحفظ محلياً فقط ولا تُرسل إلينا.</span></div>
+    <div class="tile"><div class="ic y">▶</div><b>إعلانات اختيارية</b><span>إعلانات بمكافأة تشاهدها بإرادتك فقط عبر Google AdMob.</span></div>
+  </div>
+
+  <nav class="toc" aria-label="المحتويات">
+    <h2>المحتويات</h2>
+    <ol>
+      <li><a href="#ar-1">مقدمة</a></li>
+      <li><a href="#ar-2">المعلومات المحفوظة على جهازك</a></li>
+      <li><a href="#ar-3">الإعلانات (Google AdMob)</a></li>
+      <li><a href="#ar-4">خدمات Google Play</a></li>
+      <li><a href="#ar-5">المشاركة</a></li>
+      <li><a href="#ar-6">الأذونات</a></li>
+      <li><a href="#ar-7">خصوصية الأطفال</a></li>
+      <li><a href="#ar-8">حقوقك وخياراتك</a></li>
+      <li><a href="#ar-9">أمان البيانات</a></li>
+      <li><a href="#ar-10">التعديلات على هذه السياسة</a></li>
+      <li><a href="#ar-11">تواصل معنا</a></li>
+    </ol>
+  </nav>
+
+  <section class="card" id="ar-1">
+    <h2><span class="num">1</span>مقدمة</h2>
+    <p>توضّح هذه السياسة كيف يتعامل تطبيق «من سيربح المليون - تحدي المعرفة» (ويُشار إليه بـ«التطبيق») مع المعلومات عند استخدامك له. صُمّم التطبيق ليعمل دون إنشاء حساب، ونحن لا نجمع أي معلومات شخصية تعرّف بك ولا نخزّنها على خوادم خاصة بنا.</p>
+    <p>باستخدامك للتطبيق فإنك توافق على ما ورد في هذه السياسة.</p>
+  </section>
+
+  <section class="card" id="ar-2">
+    <h2><span class="num">2</span>المعلومات المحفوظة على جهازك</h2>
+    <p>يحفظ التطبيق بعض البيانات محلياً على جهازك فقط لكي يعمل بشكل صحيح، ولا تُرسل هذه البيانات إلينا أو إلى أي طرف آخر:</p>
+    <ul>
+      <li>سجل النتائج والإحصائيات (مثل أعلى رصيد وعدد المحاولات).</li>
+      <li>الإعدادات (مثل الأقسام المختارة ومستوى الصوت).</li>
+      <li>قاعدة الأسئلة المدمجة في التطبيق.</li>
+    </ul>
+    <p>تُحذف هذه البيانات تلقائياً عند مسح بيانات التطبيق أو إلغاء تثبيته.</p>
+  </section>
+
+  <section class="card" id="ar-3">
+    <h2><span class="num">3</span>الإعلانات (Google AdMob)</h2>
+    <p>يعرض التطبيق <b>إعلانات بمكافأة فقط</b>، ولا تظهر إلا عندما تختار أنت مشاهدتها (مثلاً لاستعادة المحاولات أو لاستخدام وسيلة المساعدة «شاهد إعلاناً»). لا توجد إعلانات بانر أو إعلانات تظهر فجأة.</p>
+    <p>تُقدَّم الإعلانات عبر خدمة Google AdMob، وقد تجمع Google عند عرض الإعلان معلومات مثل:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>نوع البيانات</th><th>الغرض</th></tr></thead>
+        <tbody>
+          <tr><td>معرّف الإعلانات على الجهاز</td><td>عرض الإعلانات وقياس أدائها ومنع الاحتيال</td></tr>
+          <tr><td>عنوان IP والموقع التقريبي المستنتج منه</td><td>اختيار إعلانات مناسبة لمنطقتك</td></tr>
+          <tr><td>معلومات الجهاز ونظام التشغيل</td><td>توافق الإعلان مع جهازك</td></tr>
+          <tr><td>بيانات التفاعل مع الإعلان</td><td>احتساب المشاهدات ومنح المكافأة</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px">تخضع معالجة هذه البيانات <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">لسياسة خصوصية Google</a>. لمعرفة المزيد راجع <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">كيف تستخدم Google البيانات في تطبيقات الشركاء</a>.</p>
+  </section>
+
+  <section class="card" id="ar-4">
+    <h2><span class="num">4</span>خدمات Google Play</h2>
+    <p>يستخدم التطبيق خاصية التحديث داخل التطبيق من Google Play للتحقق من توفر إصدار أحدث وتنزيله. تتم هذه العملية بين جهازك ومتجر Google Play مباشرةً وفق <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">سياسة خصوصية Google</a>، ولا نتلقّى نحن أي بيانات منها.</p>
+  </section>
+
+  <section class="card" id="ar-5">
+    <h2><span class="num">5</span>المشاركة</h2>
+    <p>عند الضغط على زر المشاركة، يفتح التطبيق قائمة المشاركة الخاصة بنظام جهازك لتختار التطبيق الذي تريد المشاركة عبره. لا يرسل تطبيقنا أي شيء بنفسه، والمحتوى المشارَك يقتصر على النص أو الرابط الظاهر لك.</p>
+  </section>
+
+  <section class="card" id="ar-6">
+    <h2><span class="num">6</span>الأذونات</h2>
+    <ul>
+      <li><b>الإنترنت وحالة الشبكة:</b> لتحميل الإعلانات بمكافأة والتحقق من التحديثات.</li>
+      <li><b>معرّف الإعلانات:</b> تستخدمه مكتبة Google AdMob لعرض الإعلانات.</li>
+    </ul>
+    <p>لا يطلب التطبيق الوصول إلى جهات الاتصال أو الكاميرا أو الميكروفون أو الموقع الدقيق أو الملفات الشخصية. ويمكنك اللعب دون اتصال بالإنترنت.</p>
+  </section>
+
+  <section class="card" id="ar-7">
+    <h2><span class="num">7</span>خصوصية الأطفال</h2>
+    <p>التطبيق موجّه لعامة الجمهور وليس موجّهاً بشكل خاص للأطفال دون سن 13 عاماً. نحن لا نجمع عن قصد أي معلومات شخصية من الأطفال. إذا كنت وليّ أمر وتعتقد أن طفلك قدّم لنا معلومات شخصية، يُرجى التواصل معنا لنحذفها.</p>
+  </section>
+
+  <section class="card" id="ar-8">
+    <h2><span class="num">8</span>حقوقك وخياراتك</h2>
+    <ul>
+      <li><b>إعادة ضبط معرّف الإعلانات أو حذفه:</b> من إعدادات الجهاز ← Google ← الإعلانات.</li>
+      <li><b>إيقاف الإعلانات المخصّصة:</b> من الإعدادات نفسها، أو عبر <a href="https://adssettings.google.com" target="_blank" rel="noopener">إعدادات الإعلانات في Google</a>.</li>
+      <li><b>حذف بياناتك المحلية:</b> من إعدادات الجهاز ← التطبيقات ← من سيربح المليون ← التخزين ← مسح البيانات، أو بإلغاء تثبيت التطبيق.</li>
+      <li><b>عدم مشاهدة الإعلانات:</b> مشاهدة الإعلانات اختيارية دائماً ويمكنك اللعب دونها.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="ar-9">
+    <h2><span class="num">9</span>أمان البيانات</h2>
+    <p>بما أن بيانات اللعب تبقى على جهازك ولا نملك خوادم تخزّن معلوماتك، فإن حمايتها مرتبطة بأمان جهازك. أما البيانات التي تتعامل معها Google فتنتقل عبر اتصالات مشفّرة وفق معاييرها.</p>
+  </section>
+
+  <section class="card" id="ar-10">
+    <h2><span class="num">10</span>التعديلات على هذه السياسة</h2>
+    <p>قد نحدّث هذه السياسة من وقت لآخر. سننشر أي تعديل في هذه الصفحة مع تحديث «تاريخ السريان» في أعلاها، ويُعدّ استمرارك في استخدام التطبيق بعد التعديل موافقةً عليه.</p>
+  </section>
+
+  <section class="card" id="ar-11">
+    <h2><span class="num">11</span>تواصل معنا</h2>
+    <p>لأي سؤال أو طلب يخص الخصوصية:</p>
+    <div class="contact">
+      <span>البريد الإلكتروني:</span>
+      <a href="mailto:magedelayh098@gmail.com">magedelayh098@gmail.com</a>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= English ======================= -->
+<div id="en" lang="en" dir="ltr" hidden>
+
+  <div class="summary">
+    <div class="tile"><div class="ic g">✓</div><b>No accounts</b><span>We never ask you to sign up, or for your name or email.</span></div>
+    <div class="tile"><div class="ic p">▣</div><b>Your data stays on your device</b><span>Scores and settings are stored locally and never sent to us.</span></div>
+    <div class="tile"><div class="ic y">▶</div><b>Opt-in ads only</b><span>Rewarded ads via Google AdMob, shown only when you choose.</span></div>
+  </div>
+
+  <nav class="toc" aria-label="Contents">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#en-1">Introduction</a></li>
+      <li><a href="#en-2">Data stored on your device</a></li>
+      <li><a href="#en-3">Advertising (Google AdMob)</a></li>
+      <li><a href="#en-4">Google Play services</a></li>
+      <li><a href="#en-5">Sharing</a></li>
+      <li><a href="#en-6">Permissions</a></li>
+      <li><a href="#en-7">Children's privacy</a></li>
+      <li><a href="#en-8">Your rights and choices</a></li>
+      <li><a href="#en-9">Data security</a></li>
+      <li><a href="#en-10">Changes to this policy</a></li>
+      <li><a href="#en-11">Contact us</a></li>
+    </ol>
+  </nav>
+
+  <section class="card" id="en-1">
+    <h2><span class="num">1</span>Introduction</h2>
+    <p>This policy explains how the “Who Wants to Be a Millionaire – Knowledge Challenge” app (the “App”) handles information when you use it. The App works without an account. We do not collect personal information that identifies you, and we do not store any on servers of our own.</p>
+    <p>By using the App, you agree to this policy.</p>
+  </section>
+
+  <section class="card" id="en-2">
+    <h2><span class="num">2</span>Data stored on your device</h2>
+    <p>The App saves some data locally on your device so that it can work. This data is never sent to us or to anyone else:</p>
+    <ul>
+      <li>Score history and statistics (such as your best score and number of attempts).</li>
+      <li>Settings (such as selected categories and sound volume).</li>
+      <li>The question database bundled with the App.</li>
+    </ul>
+    <p>This data is deleted when you clear the App's data or uninstall it.</p>
+  </section>
+
+  <section class="card" id="en-3">
+    <h2><span class="num">3</span>Advertising (Google AdMob)</h2>
+    <p>The App shows <b>rewarded ads only</b>, and only when you choose to watch one (for example, to refill attempts or to use the “watch an ad” lifeline). There are no banner ads and no ads that pop up on their own.</p>
+    <p>Ads are served by Google AdMob. When an ad is shown, Google may collect information such as:</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Data type</th><th>Purpose</th></tr></thead>
+        <tbody>
+          <tr><td>Device advertising ID</td><td>Serving ads, measuring them and preventing fraud</td></tr>
+          <tr><td>IP address and the approximate location it implies</td><td>Choosing ads suited to your region</td></tr>
+          <tr><td>Device and operating system information</td><td>Making ads work on your device</td></tr>
+          <tr><td>Ad interaction data</td><td>Counting views and granting the reward</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top:12px">This data is processed under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. To learn more, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses data from partner apps</a>.</p>
+  </section>
+
+  <section class="card" id="en-4">
+    <h2><span class="num">4</span>Google Play services</h2>
+    <p>The App uses Google Play in-app updates to check for and download newer versions. This happens directly between your device and the Google Play Store under <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google's Privacy Policy</a>. We receive no data from it.</p>
+  </section>
+
+  <section class="card" id="en-5">
+    <h2><span class="num">5</span>Sharing</h2>
+    <p>When you tap the share button, the App opens your device's system share sheet so you can choose where to share. The App does not send anything itself, and only the text or link you see is shared.</p>
+  </section>
+
+  <section class="card" id="en-6">
+    <h2><span class="num">6</span>Permissions</h2>
+    <ul>
+      <li><b>Internet and network state:</b> to load rewarded ads and check for updates.</li>
+      <li><b>Advertising ID:</b> used by the Google AdMob SDK to serve ads.</li>
+    </ul>
+    <p>The App does not request access to your contacts, camera, microphone, precise location or personal files. You can play offline.</p>
+  </section>
+
+  <section class="card" id="en-7">
+    <h2><span class="num">7</span>Children's privacy</h2>
+    <p>The App is meant for a general audience and is not directed specifically at children under 13. We do not knowingly collect personal information from children. If you are a parent and believe your child has given us personal information, please contact us and we will delete it.</p>
+  </section>
+
+  <section class="card" id="en-8">
+    <h2><span class="num">8</span>Your rights and choices</h2>
+    <ul>
+      <li><b>Reset or delete your advertising ID:</b> Device Settings → Google → Ads.</li>
+      <li><b>Turn off personalized ads:</b> in the same settings, or at <a href="https://adssettings.google.com" target="_blank" rel="noopener">Google Ad Settings</a>.</li>
+      <li><b>Delete your local data:</b> Device Settings → Apps → the App → Storage → Clear data, or uninstall the App.</li>
+      <li><b>Skip ads:</b> watching ads is always optional, and you can play without them.</li>
+    </ul>
+  </section>
+
+  <section class="card" id="en-9">
+    <h2><span class="num">9</span>Data security</h2>
+    <p>Your game data stays on your device and we run no servers that hold your information, so its protection depends on the security of your device. Data handled by Google travels over encrypted connections under Google's standards.</p>
+  </section>
+
+  <section class="card" id="en-10">
+    <h2><span class="num">10</span>Changes to this policy</h2>
+    <p>We may update this policy from time to time. Any change will be posted on this page with an updated “Effective” date at the top. If you keep using the App after a change, you accept the updated policy.</p>
+  </section>
+
+  <section class="card" id="en-11">
+    <h2><span class="num">11</span>Contact us</h2>
+    <p>For any privacy question or request:</p>
+    <div class="contact">
+      <span>Email:</span>
+      <a href="mailto:magedelayh098@gmail.com">magedelayh098@gmail.com</a>
+    </div>
+  </section>
+</div>
+
+<footer data-ar="© 2026 من سيربح المليون - تحدي المعرفة" data-en="© 2026 Who Wants to Be a Millionaire – Knowledge Challenge">© 2026 من سيربح المليون - تحدي المعرفة</footer>
+</main>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.lang button');
+    function setLang(lang) {
+      document.documentElement.lang = lang;
+      document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+      document.getElementById('ar').hidden = lang !== 'ar';
+      document.getElementById('en').hidden = lang !== 'en';
+      document.querySelectorAll('[data-' + lang + ']').forEach(function (el) {
+        el.textContent = el.getAttribute('data-' + lang);
+      });
+      buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.lang === lang); });
+      document.title = lang === 'ar' ? 'سياسة الخصوصية — من سيربح المليون' : 'Privacy Policy — Who Wants to Be a Millionaire';
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+    buttons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.lang); }); });
+    var saved = null;
+    try { saved = localStorage.getItem('lang'); } catch (e) {}
+    if (location.hash.indexOf('#en') === 0 || /[?&]lang=en/.test(location.search)) saved = 'en';
+    if (saved === 'en') setLang('en');
+  })();
+</script>
+</body>
+</html>
